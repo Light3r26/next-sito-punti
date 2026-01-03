@@ -11,8 +11,8 @@
 }
 
 .popup {
-  background: white;
-  color: black;
+  background: var(--white);
+  color: var(--black);
   padding: 24px;
   border-radius: 12px;
   min-width: 320px;
@@ -23,4 +23,5 @@
 .closeButton {
   display: flex;
   float: right;
+  font-size: x-large;
 }

@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <h1>text 1</h1>
       <h2>Components:</h2>
       <br />
       <ul>

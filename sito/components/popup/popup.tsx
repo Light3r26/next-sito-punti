@@ -26,7 +26,7 @@ export default function Popup({
           className={styles.closeButton}
           onClick={onClose}
         >
-          ✖
+          ✘
         </button>
         {children}
       </div>
