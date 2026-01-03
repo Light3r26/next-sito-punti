@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  --black: #111;
   --gray: #493B3C;
   --white: #EEEBEE;
   --main-light: #466FC3;
@@ -8,13 +9,8 @@
   --highlight: #E1CD43;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  font-family: "Pirata One";
+  color: var(--white);
 }
 
-body {
-  font-family: "Pirata One";
-}
