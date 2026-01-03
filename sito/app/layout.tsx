@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {  Pirata_One } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 const pirataOne = Pirata_One({
   variable: "--font-pirata-one",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${pirataOne.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

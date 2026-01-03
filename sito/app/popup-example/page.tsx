@@ -4,7 +4,7 @@ import { useState } from "react";
 import Popup from "@/components/popup";
 import Link from "next/link";
 
-export default function PopUpPage() {
+export default function PopUp() {
   const [open, setOpen] = useState(false);
 
   return (
