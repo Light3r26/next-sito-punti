@@ -2,17 +2,16 @@
 
 import { useState } from "react";
 import Popup from "@/components/popup";
-import Link from "next/link";
 
 export default function PopUp() {
   const [activePopup, setActivePopup] = useState<null | "a" | "b">(null);
   return (
     <main>
-      <Popup
+      <Popup      /*si usa un singolo popup*/
         isOpen={activePopup !== null}
         onClose={() => setActivePopup(null)}
       >
-        {activePopup === "a" && (
+        {activePopup === "a" && (   /*che cambia contenuto*/
           <div>
             <h2>Popup A</h2>
             <p>Contenuto del popup A</p>
@@ -26,15 +25,14 @@ export default function PopUp() {
           </div>
         )}
       </Popup>
+      {/* in base a quale pulsante viene cliccato */}
       <button onClick={() => setActivePopup("a")}>
         Apri popup A
-      </button>
+      </button>              
       <br />
       <button onClick={() => setActivePopup("b")}>
         Apri popup B
       </button>
-      <br />
-      <Link href="/">home</Link>
     </main>
   );
 }

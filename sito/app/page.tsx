@@ -1,14 +1,10 @@
-import Link from "next/link";
+import Image from "next/image";
+import logo from "@/public/logo.png";
 
 export default function Home() {
   return (
-    <>
-      <h1>text 1</h1>
-      <h2>Components:</h2>
-      <br />
-      <ul>
-        <li><Link href="/popup-example">popup</Link></li>
-      </ul>
-    </>
+    <main>
+      <Image src={logo} alt={"Logo"} width={150} height={150}/>
+    </main>
   );
 }
