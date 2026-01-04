@@ -5,27 +5,34 @@ import Popup from "@/components/popup";
 import Link from "next/link";
 
 export default function PopUp() {
-  const [open, setOpen] = useState(false);
-
+  const [activePopup, setActivePopup] = useState<null | "a" | "b">(null);
   return (
-    <main style={{ padding: "40px" }}>
-      <button onClick={() => setOpen(true)}>
-        tasto per aprire popup
-      </button>
-
+    <main>
       <Popup
-        isOpen={open}
-        onClose={() => setOpen(false)}
+        isOpen={activePopup !== null}
+        onClose={() => setActivePopup(null)}
       >
-        <h2>titolo del popup</h2>
-        <p>
-            contenuto del popup.
+        {activePopup === "a" && (
+          <div>
+            <h2>Popup A</h2>
+            <p>Contenuto del popup A</p>
+          </div>
+        )}
 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde natus repellat ipsum facere incidunt soluta earum qui voluptatum 
-            reprehenderit nesciunt deleniti ullam, iure consectetur perspiciatis vel fugit ipsa, itaque quae.
-        </p>
+        {activePopup === "b" && (
+          <div>
+            <h2>Popup B</h2>
+            <p>Contenuto del popup B</p>
+          </div>
+        )}
       </Popup>
+      <button onClick={() => setActivePopup("a")}>
+        Apri popup A
+      </button>
       <br />
+      <button onClick={() => setActivePopup("b")}>
+        Apri popup B
+      </button>
       <br />
       <Link href="/">home</Link>
     </main>

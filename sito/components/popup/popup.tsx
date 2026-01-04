@@ -1,19 +1,12 @@
-"use client";
-
 import styles from "./popup.module.css";
-import { ReactNode } from "react";
 
 type PopupProps = {
   isOpen: boolean;
   onClose: () => void;
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
-export default function Popup({
-  isOpen,
-  onClose,
-  children,
-}: PopupProps) {
+export default function Popup({ isOpen, onClose, children }: PopupProps) {
   if (!isOpen) return null;
 
   return (
@@ -22,12 +15,7 @@ export default function Popup({
         className={styles.popup}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          className={styles.closeButton}
-          onClick={onClose}
-        >
-          ✘
-        </button>
+        <button className={styles.closeButton} onClick={onClose}>✘</button>
         {children}
       </div>
     </div>
