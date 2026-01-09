@@ -1,11 +1,20 @@
 import Image from "next/image";
 import logo from "@/public/logo.png";
-import "./style.css"
+import background from "@/public/background-sea.jpg";
+import styles from "./page.module.css"
 import Button from "@/components/button";
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.wrapper}>
+      <Image
+        src={background}
+        alt="Background"
+        fill
+        priority
+        sizes="100vh"
+        className={styles.bg}
+      />
       <Image src={logo} alt={"Logo"} width={150} height={150}/>
       <h2>ISIS J.M. Keynes</h2>
       <h1>ONE PIECE</h1>
