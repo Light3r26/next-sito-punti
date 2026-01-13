@@ -16,7 +16,7 @@ export default function Navbar() {
           <Link href="/profilo">Profilo</Link>
         </li>
         <li>
-          <Link href="/caccia-al-tesoro">Caccia al tesoro</Link>
+          <Link href="/viaggio">Viaggio</Link>
         </li>
         <li>
           <Link href="/rotte">Rotte</Link>
@@ -29,7 +29,7 @@ export default function Navbar() {
         </li>
       </ul>
 
-       <button
+      <button
         className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Menu"

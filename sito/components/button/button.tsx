@@ -10,7 +10,7 @@ type ButtonProps = {
 };
 
 export default function Button({ children, link, type }: ButtonProps) {
-    return(
-        <Link className={styles[type]} href={link}>{children}</Link>
-    )
+  return (
+    <Link className={styles[type]} href={link}>{children}</Link>
+  )
 }
