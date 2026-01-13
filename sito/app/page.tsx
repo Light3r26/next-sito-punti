@@ -6,7 +6,7 @@ import Button from "@/components/button";
 
 export default function Home() {
   return (
-    <main className={styles.wrapper}>
+    <main className={styles.main}>
       <Image
         src={background}
         alt="Background"
@@ -15,7 +15,7 @@ export default function Home() {
         sizes="100vh"
         className={styles.bg}
       />
-      <Image src={logo} alt={"Logo"} width={150} height={150}/>
+      <Image className={styles.logo} src={logo} alt={"Logo"} width={150} height={150} />
       <h2>ISIS J.M. Keynes</h2>
       <h1>ONE PIECE</h1>
       <Button type="btn-primary" link="/">Accedi</Button>
