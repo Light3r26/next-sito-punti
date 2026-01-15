@@ -1,9 +1,19 @@
+'use client'
+
 import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
-import { ChevronDownIcon } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+
+const MobileMenuContext = React.createContext<{
+  isOpen: boolean
+  setIsOpen: (open: boolean) => void
+}>({
+  isOpen: false,
+  setIsOpen: () => { },
+})
 
 function NavigationMenu({
   className,
@@ -13,19 +23,30 @@ function NavigationMenu({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
   viewport?: boolean
 }) {
+  const [isOpen, setIsOpen] = React.useState(false)
+
   return (
-    <NavigationMenuPrimitive.Root
-      data-slot="navigation-menu"
-      data-viewport={viewport}
-      className={cn(
-        "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
-        className
-      )}
-      {...props}
-    >
-      {children}
-      {viewport && <NavigationMenuViewport />}
-    </NavigationMenuPrimitive.Root>
+    <MobileMenuContext.Provider value={{ isOpen, setIsOpen }}>
+      <NavigationMenuPrimitive.Root
+        data-slot="navigation-menu"
+        data-viewport={viewport}
+        className={cn(
+          "group/navigation-menu relative flex w-full items-center justify-center bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50",
+          className
+        )}
+        {...props}
+      >
+        <button
+          className="md:hidden absolute right-4 top-4 z-50 p-2 text-foreground"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
+
+        {children}
+        {viewport && <NavigationMenuViewport />}
+      </NavigationMenuPrimitive.Root>
+    </MobileMenuContext.Provider>
   )
 }
 
@@ -33,11 +54,16 @@ function NavigationMenuList({
   className,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.List>) {
+  const { isOpen } = React.useContext(MobileMenuContext)
+
   return (
     <NavigationMenuPrimitive.List
       data-slot="navigation-menu-list"
+      data-mobile-open={isOpen}
       className={cn(
-        "group flex flex-1 list-none items-center justify-center gap-1",
+        "md:group md:flex md:w-full md:list-none md:items-center md:justify-center md:gap-1",
+        "max-md:fixed max-md:inset-0 max-md:z-40 max-md:flex-col max-md:items-center max-md:justify-center max-md:gap-8 max-md:bg-background/60 max-md:backdrop-blur-md max-md:transition-transform max-md:duration-300",
+        isOpen ? "max-md:translate-x-0" : "max-md:translate-x-full",
         className
       )}
       {...props}
@@ -74,8 +100,8 @@ function NavigationMenuTrigger({
       {...props}
     >
       {children}{" "}
-      <ChevronDownIcon
-        className="relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
+      <ChevronDown
+        className="relative top-px ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
         aria-hidden="true"
       />
     </NavigationMenuPrimitive.Trigger>
@@ -123,15 +149,24 @@ function NavigationMenuViewport({
 
 function NavigationMenuLink({
   className,
+  onClick,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
+  const { setIsOpen } = React.useContext(MobileMenuContext)
+
   return (
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
       className={cn(
         "data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+        // Mobile Link Styles
+        "max-md:text-2xl max-md:font-semibold max-md:p-4",
         className
       )}
+      onClick={(e) => {
+        setIsOpen(false)
+        onClick?.(e)
+      }}
       {...props}
     />
   )

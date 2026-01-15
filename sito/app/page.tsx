@@ -8,7 +8,7 @@ export default function Home() {
     <main className="flex flex-col items-center justify-center h-screen gap-12">
       <Image src="/logo.png" alt="Logo" width={100} height={100} />
       <h2>ISIS J.M. Keynes</h2>
-      <h1>One piece</h1>
+      <h1 className="text-5xl font-black">One piece</h1>
       <Button variant="outline">Accedi</Button>
       <Carousel>
         <CarouselContent>
