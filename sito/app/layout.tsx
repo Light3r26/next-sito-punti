@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { NavigationMenu, NavigationMenuList, NavigationMenuLink } from "@radix-ui/react-navigation-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <NavigationMenu className="fixed top-0 left-0 right-0">
+          <NavigationMenuList>
+            <NavigationMenuLink href="/">Home</NavigationMenuLink>
+            <NavigationMenuLink href="/about">About</NavigationMenuLink>
+            <NavigationMenuLink href="/contact">Contact</NavigationMenuLink>
+          </NavigationMenuList>
+        </NavigationMenu>
         {children}
       </body>
     </html>
