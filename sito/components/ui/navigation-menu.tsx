@@ -31,7 +31,7 @@ function NavigationMenu({
         data-slot="navigation-menu"
         data-viewport={viewport}
         className={cn(
-          "group/navigation-menu relative flex w-full items-center justify-center bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50",
+          "group/navigation-menu relative flex w-full items-center justify-center bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 z-50",
           className
         )}
         {...props}
@@ -62,7 +62,7 @@ function NavigationMenuList({
       data-mobile-open={isOpen}
       className={cn(
         "md:group md:flex md:w-full md:list-none md:items-center md:justify-center md:gap-1",
-        "max-md:fixed max-md:inset-0 max-md:z-40 max-md:flex-col max-md:items-center max-md:justify-center max-md:gap-8 max-md:bg-background/60 max-md:backdrop-blur-md max-md:transition-transform max-md:duration-300",
+        "max-md:fixed max-md:inset-0 max-md:z-40 max-md:flex-col max-md:items-center max-md:justify-center max-md:gap-8 max-md:transition-transform max-md:duration-300",
         isOpen ? "max-md:translate-x-0" : "max-md:translate-x-full",
         className
       )}
@@ -160,7 +160,7 @@ function NavigationMenuLink({
       className={cn(
         "data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
         // Mobile Link Styles
-        "max-md:text-2xl max-md:font-semibold max-md:p-4",
+        "max-md:bg-background max-md:backdrop-blur max-md:rounded-none max-md:text-2xl max-md:font-semibold max-md:p-4",
         className
       )}
       onClick={(e) => {
