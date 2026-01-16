@@ -18,35 +18,42 @@ export default function Home() {
       <h2>ISIS J.M. Keynes</h2>
       <h1 className="text-5xl font-black">One piece</h1>
       <Button variant="outline">Accedi</Button>
-      <div className="max-w-100">
-        <MarqueeAnimation
-          direction="left"
-          baseVelocity={-1}
-          className="text-1xl bg--background/50 backdrop-blur-md"
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate omnis mollitia repellendus illo. Quia doloribus modi eum necessitatibus blanditiis rem molestiae mollitia laudantium deleniti architecto, sit nulla repellendus consequatur eos!1
-        </MarqueeAnimation>
-      </div>
+
       <div className="max-w-150">
-        <Carousel>
-          <CarouselContent className="max-md:max-w-1/2 md:max-w-1/3">
-            <CarouselItem>
-              <div className="flex items-center justify-center p-6">
-                <Image preload={true} src="/images/jolly_roger_1.png" alt="Jolly Roger 1" width={200} height={200} className="rounded-lg shadow-xl" />
-              </div>
+        <Carousel className="w-full">
+          <CarouselContent className="max-md:max-w-full md:max-w-full">
+            <CarouselItem className="w-full">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis cumque ipsa unde possimus quis sint eos laudantium maxime.
             </CarouselItem>
-            <CarouselItem>
-              <div className="flex items-center justify-center p-6">
-                <Image preload={true} src="/images/jolly_roger_2.png" alt="Jolly Roger 2" width={200} height={200} className="rounded-lg shadow-xl" />
-              </div>
+            <CarouselItem className="w-full">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus consequatur, sed nam distinctio eaque repellendus
             </CarouselItem>
-            <CarouselItem>
-              <div className="flex items-center justify-center p-6">
-                <Image preload={true} src="/images/jolly_roger_3.png" alt="Jolly Roger 3" width={200} height={200} className="rounded-lg shadow-xl" />
-              </div>
+            <CarouselItem className="w-full">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quae.
             </CarouselItem>
           </CarouselContent>
         </Carousel>
+      </div>
+      <div className="max-w-100">
+        <MarqueeAnimation
+          direction="left"
+          baseVelocity={-3}
+        >
+          <div className="flex gap-30 max-w-100">
+            <Image preload={true} src="/images/jolly_roger_0.png" alt="" width={100} height={100} className="rounded-lg" />
+
+            <Image preload={true} src="/images/jolly_roger_1.png" alt="" width={100} height={100} className="rounded-lg" />
+
+            <Image preload={true} src="/images/jolly_roger_2.png" alt="" width={100} height={100} className="rounded-lg" />
+
+            <Image preload={true} src="/images/jolly_roger_3.png" alt="" width={100} height={100} className="rounded-lg" />
+
+            <Image preload={true} src="/images/jolly_roger_2.png" alt="" width={100} height={100} className="rounded-lg" />
+
+            <Image preload={true} src="/images/jolly_roger_3.png" alt="" width={100} height={100} className="rounded-lg" />
+
+          </div>
+        </MarqueeAnimation>
       </div>
       <ButtonGroup>
         <ButtonGroupText>pos</ButtonGroupText>

@@ -12,9 +12,10 @@ import {
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
 type MarqueeAnimationProps = {
-  children: string;
+  children: ReactNode;
   className?: string;
   direction?: "left" | "right";
   baseVelocity: number;
